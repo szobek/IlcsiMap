@@ -50,7 +50,7 @@ const createScripts = () => {
     const mapScript = document.createElement('script');
     const mapApi = document.createElement('script');
     mapScript.src = "map.js";
-    mapApi.src = `https://maps.googleapis.com/maps/api/js?key=${config.mapApiKey}&callback=initMap&loading=async`
+    mapApi.src = `https://maps.googleapis.com/maps/api/js?key=${config.mapApiKey}&libraries=marker&callback=initMap&loading=async`
     document.body.appendChild(mapScript)
     document.body.appendChild(mapApi)
 }
