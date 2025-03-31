@@ -18,7 +18,7 @@ function initMap() {
         });
 
         const infowindow = new google.maps.InfoWindow({
-            content: `<img src='assets/user.png' /> <br >Név: ${marker.Name} <br> Lakhely: ${marker.City}`
+            content: `<img src='${marker.Image}' /> <br >Név: ${marker.Name} <br> Lakhely: ${marker.City}`
         });
         markerItem.addListener('click', () => {
             if (activeInfoWindow) {
