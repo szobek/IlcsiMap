@@ -9,3 +9,8 @@
 .gm-style .gm-style-iw-t::after {
     background: rgb(148, 129, 129);
 }
+
+.gm-style .gm-style-iw-t img {
+    width: 100px;
+}
+
