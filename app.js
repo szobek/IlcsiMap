@@ -1,7 +1,7 @@
 import { config } from './env.js'
 
-const data_rows = []
-const title_array = []
+const dataRows = []
+const titleArray = []
 const start = () => {
     gapi.client.init({
         'apiKey': config.apiKey,
@@ -29,21 +29,21 @@ const convertResult = (result) => {
 const createMarkers = (result) => {
     for (let row = 1; row < result.length; row++) {
         let obj = {}
-        for (let item = 0; item < title_array.length; item++) {
-            obj[title_array[item]] = result[row][item]
+        for (let item = 0; item < titleArray.length; item++) {
+            obj[titleArray[item]] = result[row][item]
         }
-        data_rows.push(obj)
+        dataRows.push(obj)
         obj = {}
     }
-    dataOfSpreadsheet.push(data_rows)
+    dataOfSpreadsheet.push(dataRows)
 }
 
 const createTitleArray = (result) => {
     const title = result[0].values()
     for (let item of title) {
-        title_array.push(item)
+        titleArray.push(item)
     }
-    dataOfSpreadsheet.push(title_array)
+    dataOfSpreadsheet.push(titleArray)
 }
 
 const createScripts = () => {
@@ -51,7 +51,7 @@ const createScripts = () => {
         'map.js',
         `https://maps.googleapis.com/maps/api/js?key=${config.mapApiKey}&libraries=marker&callback=initMap&loading=async`
     ]
-    
+
     for(let scriptsrc of scripts){
         const script = document.createElement('script');
         script.src = scriptsrc;
