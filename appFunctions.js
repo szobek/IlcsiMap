@@ -4,6 +4,9 @@ const dataRows = []
 const titleArray = []
 
 export class appFunctions {
+    constructor() { 
+    }
+
     createScripts() {
         const scripts = [
             'map.js',
