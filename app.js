@@ -26,8 +26,7 @@ const start = () => {
 };
 const convertResult = (result) => {
     af.createTitleArray(result)
-    af.createMarkers(result)
-    af.createScripts()
+    af.createMarkers(result).then(af.createScripts())
 }
 
 (() => {

@@ -18,15 +18,19 @@ export class appFunctions{
     }
 
     createMarkers(result) {
-        for (let row = 1; row < result.length; row++) {
-            let obj = {}
-            for (let item = 0; item < titleArray.length; item++) {
-                obj[titleArray[item]] = result[row][item]
+        return new Promise((resolve, reject) => {
+            for (let row = 1; row < result.length; row++) {
+                let obj = {}
+                for (let item = 0; item < titleArray.length; item++) {
+                    obj[titleArray[item]] = result[row][item]
+                }
+                dataRows.push(obj)
+                obj = {}
             }
-            dataRows.push(obj)
-            obj = {}
-        }
-        dataOfSpreadsheet.push(dataRows)
+            dataOfSpreadsheet.push(dataRows)
+            resolve()
+        })
+        
     }
     
     createTitleArray(result) {
