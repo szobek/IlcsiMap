@@ -13,4 +13,10 @@
 .gm-style .gm-style-iw-t img {
     width: 100px;
 }
+#table{
+    border-spacing: 0;
+}
+#tbody>tr>td{
+    padding: 10px;
+}
 

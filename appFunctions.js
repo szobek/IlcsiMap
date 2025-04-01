@@ -57,7 +57,7 @@ export class appFunctions {
     }
     writeToHTML() {
         const data = dataOfSpreadsheet[1].map(item => {
-            return { name: item.Name, city: item.City }
+            return { name: item.Name, city: item.City,sex:item.Sex }
         })
         data.forEach(item => {
             this.createTableRow(item)
@@ -69,9 +69,19 @@ export class appFunctions {
         const cell2 = document.createElement('td')
         cell1.textContent = data.name
         cell2.textContent = data.city
+        row.style.backgroundColor=this.getBackgroundBySex(data.sex)
+        row.style.color='white'
         row.appendChild(cell1)
         row.appendChild(cell2)
         tbody.appendChild(row)
 
+    }
+    getBackgroundBySex(sex){
+        switch(sex){
+            case 'Férfi':
+                return '#5f5fa5'
+            case 'Nő':
+                return '#e35d5d'
+        }
     }
 }
