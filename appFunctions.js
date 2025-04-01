@@ -1,14 +1,14 @@
 import { config, dataOfSpreadsheet } from './env.js'
-
-const dataRows = []
-const titleArray = []
-const tbody = document.querySelector('#tbody')
-
 export class appFunctions {
+    dataRows
+    titleArray
+    tbody
     constructor() {
-
+        this.dataRows=[]
+        this.titleArray= []
+        this.tbody = document.querySelector('#tbody')
     }
-
+    
     async createScripts() {
         const scripts = [
             `map.js`,
@@ -32,22 +32,22 @@ export class appFunctions {
 
         for (let row = 1; row < result.length; row++) {
             let obj = {}
-            for (let item = 0; item < titleArray.length; item++) {
-                obj[titleArray[item]] = result[row][item]
+            for (let item = 0; item < this.titleArray.length; item++) {
+                obj[this.titleArray[item]] = result[row][item]
             }
-            dataRows.push(obj)
+            this.dataRows.push(obj)
             obj = {}
         }
-        dataOfSpreadsheet.push(dataRows)
+        dataOfSpreadsheet.push(this.dataRows)
     }
 
     createTitleArray(result) {
         return new Promise((resolve, reject) => {
             const title = result[0].values()
             for (let item of title) {
-                titleArray.push(item)
+                this.titleArray.push(item)
             }
-            dataOfSpreadsheet.push(titleArray)
+            dataOfSpreadsheet.push(this.titleArray)
             resolve()
         })
     }
@@ -75,7 +75,7 @@ export class appFunctions {
         row.style.color = 'white'
         row.appendChild(cell1)
         row.appendChild(cell2)
-        tbody.appendChild(row)
+        this.tbody.appendChild(row)
 
     }
     getBackgroundBySex(sex) {
