@@ -18,8 +18,13 @@ export class appFunctions {
         for (let scriptsrc of scripts) {
             const script = document.createElement('script');
             script.src = scriptsrc;
-
-            document.body.appendChild(script)
+if(scriptsrc.includes("maps.googleapis.com")){
+    script.async = true;
+}
+if(scriptsrc.includes("map.js")){
+    script.type = "module";
+}   
+document.body.appendChild(script)
         }
     }
 

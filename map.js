@@ -52,3 +52,4 @@ const getSex = (marker)=>{
             return './assets/red.png'
     }
 }
+window.initMap=initMap
