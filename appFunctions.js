@@ -9,7 +9,7 @@ export class appFunctions {
         this.tbody = document.querySelector('#tbody')
     }
     
-    async createScripts() {
+    createScripts() {
         const scripts = [
             `map.js`,
             `https://maps.googleapis.com/maps/api/js?key=${config.mapApiKey}&libraries=marker&callback=initMap&loading=async`
