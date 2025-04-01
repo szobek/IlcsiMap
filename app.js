@@ -15,10 +15,10 @@ const start = () => {
         try {
             convertResult(response.result.values);
         } catch (error) {
-            console.log("hiba történt a konvertálásnál");
+            console.error("hiba történt a konvertálásnál");
         }
     }).catch((err) => {
-        console.log(err);
+        console.error(err);
     });
 };
 const convertResult = (result) => {
