@@ -1,3 +1,4 @@
+import { dataOfSpreadsheet } from './env.js'
 
 async function initMap() {
     const hungary = { lat: 47.1611615, lng: 19.5057541 };

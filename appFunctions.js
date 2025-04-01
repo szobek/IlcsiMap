@@ -1,4 +1,4 @@
-import { config } from './env.js'
+import { config, dataOfSpreadsheet } from './env.js'
 
 const dataRows = []
 const titleArray = []
