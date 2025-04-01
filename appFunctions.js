@@ -3,14 +3,14 @@ import { config } from './env.js'
 const dataRows = []
 const titleArray = []
 
-export class appFunctions{
-     createScripts() {
-        const scripts=[
+export class appFunctions {
+    createScripts() {
+        const scripts = [
             'map.js',
             `https://maps.googleapis.com/maps/api/js?key=${config.mapApiKey}&libraries=marker&callback=initMap&loading=async`
         ]
-    
-        for(let scriptsrc of scripts){
+
+        for (let scriptsrc of scripts) {
             const script = document.createElement('script');
             script.src = scriptsrc;
             document.body.appendChild(script)
@@ -30,9 +30,8 @@ export class appFunctions{
             dataOfSpreadsheet.push(dataRows)
             resolve()
         })
-        
     }
-    
+
     createTitleArray(result) {
 
         const title = result[0].values()
@@ -42,6 +41,10 @@ export class appFunctions{
         dataOfSpreadsheet.push(titleArray)
     }
 
-   
-    
+    convertResult(result) {
+        this.createTitleArray(result)
+        this.createMarkers(result).then(this.createScripts())
+
+    }
+
 }

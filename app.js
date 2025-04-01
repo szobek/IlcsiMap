@@ -1,7 +1,6 @@
 import { config } from './env.js'
 import { appFunctions } from './appFunctions.js';
 
-
 const af=new appFunctions()
 
 const start = () => {
@@ -14,9 +13,8 @@ const start = () => {
             range: config.sheetRange
         })
     }).then((response) => {
-
         try {
-            convertResult(response.result.values);
+            af.convertResult(response.result.values);
         } catch (error) {
             console.error("hiba történt a konvertálásnál",error);
         }
@@ -24,10 +22,6 @@ const start = () => {
         console.error(err);
     });
 };
-const convertResult = (result) => {
-    af.createTitleArray(result)
-    af.createMarkers(result).then(af.createScripts())
-}
 
 (() => {
     gapi.load('client', start);
