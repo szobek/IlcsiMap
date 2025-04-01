@@ -18,13 +18,13 @@ export class appFunctions {
         for (let scriptsrc of scripts) {
             const script = document.createElement('script');
             script.src = scriptsrc;
-if(scriptsrc.includes("maps.googleapis.com")){
-    script.async = true;
-}
-if(scriptsrc.includes("map.js")){
-    script.type = "module";
-}   
-document.body.appendChild(script)
+            if (scriptsrc.includes("maps.googleapis.com")) {
+                script.async = true;
+            }
+            if (scriptsrc.includes("map.js")) {
+                script.type = "module";
+            }
+            document.body.appendChild(script)
         }
     }
 
@@ -71,15 +71,15 @@ document.body.appendChild(script)
         const cell2 = document.createElement('td')
         cell1.textContent = data.Name
         cell2.textContent = data.City
-        row.style.backgroundColor=this.getBackgroundBySex(data.Sex)
-        row.style.color='white'
+        row.style.backgroundColor = this.getBackgroundBySex(data.Sex)
+        row.style.color = 'white'
         row.appendChild(cell1)
         row.appendChild(cell2)
         tbody.appendChild(row)
 
     }
-    getBackgroundBySex(sex){
-        switch(sex){
+    getBackgroundBySex(sex) {
+        switch (sex) {
             case 'Férfi':
                 return '#5f5fa5'
             case 'Nő':
