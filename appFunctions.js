@@ -25,14 +25,10 @@ export class appFunctions {
     }
 
     createMarkers(result) {
-
         for (let row = 1; row < result.length; row++) {
-            let obj = {}
-            for (let item = 0; item < this.titleArray.length; item++) {
-                obj[this.titleArray[item]] = result[row][item]
-            }
+            const obj = {}
+            for (let item = 0; item < this.titleArray.length; item++)  obj[this.titleArray[item]] = result[row][item] 
             this.dataRows.push(obj)
-            obj = {}
         }
         dataOfSpreadsheet.push(this.dataRows)
     }
